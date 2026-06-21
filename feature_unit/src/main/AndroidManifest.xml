@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
+
+    <!--
+        dist:module marks this as an on-demand dynamic feature:
+        • dist:instant="false"    — not an instant app
+        • dist:title              — must reference a string in the BASE module (see strings.xml comment)
+        • dist:on-demand          — Play only delivers this split when the app explicitly requests it
+        • dist:fusing include=true — bundled into the APK set used by devices running API < 21
+                                    (minSdk is 24 here, so fusing is academic but good practice)
+    -->
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_unit_converter">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <application>
+        <activity
+            android:name=".UnitConverterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DynamicFeatureDemo" />
+    </application>
+
+</manifest>

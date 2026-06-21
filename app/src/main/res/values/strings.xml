@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DynamicFeatureDemo</string>
+
+    <!--
+        DFM RULE: feature module title strings MUST live in the base module.
+        The Android build tools merge manifests from all modules, and the
+        dist:title attribute in each feature's AndroidManifest.xml must resolve
+        to a resource that exists at bundle-build time. Feature modules are not
+        present at base-module compile time, so any @string they declared would
+        be unresolvable. Putting all titles here avoids that build error.
+    -->
+    <string name="title_unit_converter">Unit Converter</string>
+    <string name="title_qr_generator">QR Generator</string>
+    <string name="title_quick_notes">Quick Notes</string>
+    <string name="title_calculator">Calculator</string>
+      <string name="title_dynamicfeature">Demo</string>
+</resources>
